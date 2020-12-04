@@ -34,7 +34,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         c.join(self.channel)
 
     def on_pubmsg(self, c, e):
-        if e.arguments[0].startswith('!commands edit !sus ') and ( e.source.nick == 'jerma985' or e.tags['mod'] == '1' ):
+        if e.arguments[0].startswith('!commands edit !sus ') and ( e.source.nick == 'jerma985' or e.tags['mod'] == 1 ):
             sus = str(e.arguments[0]).split('!commands edit !sus ', 1)[1]
             print('New sus: ' + sus)
             print(e.source.nick)
