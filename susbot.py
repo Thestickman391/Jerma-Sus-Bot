@@ -34,7 +34,8 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         c.join(self.channel)
 
     def on_pubmsg(self, c, e):
-        if e.arguments[0].startswith('!commands edit !sus ') and ( e.source.nick == 'jerma985' or e.tags[8]['value'] == '1' ):
+        mods = ['leatherjkt', 'sebbeks', 'flooter', 'grumpclump', 'monxie', 'nightbot', 'vrjosh', 'khadbtv', 'iammunkk', 'krowski_nall', 'jerma985']
+        if e.arguments[0].startswith('!commands edit !sus ') and ( e.source.nick in mods or e.tags[8]['value'] == '1' ):
             #print(e.tags[8]['value']) #Value of mod
             #im aware this is a garbage solution but idgaf
             sus = str(e.arguments[0]).split('!commands edit !sus ', 1)[1]
